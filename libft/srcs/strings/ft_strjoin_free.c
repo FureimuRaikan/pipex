@@ -6,7 +6,7 @@
 /*   By: fureimu <fureimu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 14:53:30 by yguinio           #+#    #+#             */
-/*   Updated: 2025/01/23 17:01:35 by fureimu          ###   ########.fr       */
+/*   Updated: 2025/01/26 19:17:56 by fureimu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ char	*ft_strjoin_free(char *s1, char *s2)
 		return (NULL);
 	ptr = ft_calloc(sizeof(char), (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!ptr)
+	{
+		free(s1);
 		return (NULL);
+	}
 	while (s1 && s1[++i])
 		ptr[i] = s1[i];
 	while (s2 && s2[j])
