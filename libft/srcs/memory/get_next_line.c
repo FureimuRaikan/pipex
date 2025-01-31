@@ -6,7 +6,7 @@
 /*   By: fureimu <fureimu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 10:11:22 by yguinio           #+#    #+#             */
-/*   Updated: 2025/01/28 12:35:37 by fureimu          ###   ########.fr       */
+/*   Updated: 2025/01/30 17:39:39 by fureimu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,12 +100,12 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	str_stored[fd] = ft_read_file(fd, str_stored[fd]);
-	if (!str_stored[fd])
-	{
-    	str_stored[fd] = NULL;
-    	return (NULL);
-	}
 	line = ft_line(str_stored[fd]);
 	str_stored[fd] = ft_next_line(str_stored[fd]);
+	if (!str_stored[fd] || !*str_stored[fd])
+	{
+		free(str_stored[fd]);
+		str_stored[fd] = NULL;
+	}
 	return (line);
 }

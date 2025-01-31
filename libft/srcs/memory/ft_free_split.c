@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_reverse.c                                       :+:      :+:    :+:   */
+/*   ft_free_split.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fureimu <fureimu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 11:01:44 by fureimu           #+#    #+#             */
-/*   Updated: 2025/01/29 16:07:30 by fureimu          ###   ########.fr       */
+/*   Created: 2025/01/29 13:23:30 by fureimu           #+#    #+#             */
+/*   Updated: 2025/01/29 13:27:40 by fureimu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_reverse(char *str)
+void	ft_free_split(char **array)
 {
-	size_t			i;
-	size_t const	len = ft_strlen(str) - 1;
-	char			temp;
+	int	i;
 
-	i = 0;
-	while (i <= (len) / 2)
-	{
-		temp = str[len - i];
-		str[len - i] = str[i];
-		str[i] = temp;
-		i++;
-	}
-	return (str);
+	i = -1;
+	while (array[++i])
+		free(array[i]);
+	free(array[i]);
+	free(array);
 }

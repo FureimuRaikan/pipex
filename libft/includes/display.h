@@ -6,7 +6,7 @@
 /*   By: fureimu <fureimu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 10:29:28 by fureimu           #+#    #+#             */
-/*   Updated: 2025/01/26 18:55:42 by fureimu          ###   ########.fr       */
+/*   Updated: 2025/01/29 13:36:05 by fureimu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	ft_putnbr_fd(int n, int fd);
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 100
 # endif
-
-char	*get_next_line(int fd);
 
 int		ft_printf(const char *str, ...);
 int		ft_putchar_len(int c);

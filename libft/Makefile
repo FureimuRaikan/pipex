@@ -6,7 +6,7 @@
 #    By: fureimu <fureimu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/12 11:29:57 by yguinio           #+#    #+#              #
-#    Updated: 2025/01/28 12:28:09 by fureimu          ###   ########.fr        #
+#    Updated: 2025/01/31 13:30:48 by fureimu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,10 +35,11 @@ LINKED_LIST_FILES=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_ls
 					ft_lstiter.c ft_lstmap.c ft_sclst_clean.c ft_sclst_size.c ft_sclst_max.c ft_sclst_min.c ft_sclst_addback.c \
 					ft_sclstlast.c ft_sclstnew.c
 
-MEMORY_FILES=	ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memchr.c ft_memcmp.c ft_calloc.c 
+MEMORY_FILES=	ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memchr.c ft_memcmp.c ft_calloc.c ft_free_split.c 
 
 STRINGS_FILES=	ft_strlen.c ft_reverse.c ft_strlcpy.c ft_strlcat.c ft_strrchr.c ft_strncmp.c ft_strnstr.c ft_strdup.c ft_strchr.c \
-				ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_strmapi.c ft_striteri.c ft_strjoin_free.c ft_strjoin_free.c
+				ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_strmapi.c ft_striteri.c ft_strjoin_free.c ft_strjoin_free.c \
+				ft_split_quote.c
 			  
 OBJ = $(addprefix $(OBJ_DIR), $(CHECKS_FILES:.c=.o)) \
 	  $(addprefix $(OBJ_DIR), $(CONVERSION_FILES:.c=.o)) \

@@ -6,7 +6,7 @@
 /*   By: fureimu <fureimu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 10:29:32 by fureimu           #+#    #+#             */
-/*   Updated: 2025/01/28 12:28:02 by fureimu          ###   ########.fr       */
+/*   Updated: 2025/01/31 13:31:56 by fureimu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 char	**ft_split(char const *s, char c);
+char	**ft_split_quote(char const *str, char c, char quote);
 
 #endif
