@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fureimu <fureimu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:28:43 by fureimu           #+#    #+#             */
-/*   Updated: 2025/01/31 13:43:27 by fureimu          ###   ########.fr       */
+/*   Updated: 2025/02/03 15:54:22 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	ft_exec_commands(t_pipex *pipex, int ac, char **av)
 	while (++i < ac - 2)
 	{
 		pipex->current_cmd = ft_split_quote(av[i], ' ', '\'');
-		command = ft_strjoin("/bin/", pipex->current_cmd[0]);
+		command = ft_command_path(pipex->current_cmd[0]);
 		if (pipe(pipex->pipefd) == -1)
 			ft_exit_error(*pipex, "pipe error");
 		ft_exec_child(pipex, pipex->in_fd, pipex->pipefd[1], command);
@@ -84,7 +84,7 @@ void	ft_exec_commands(t_pipex *pipex, int ac, char **av)
 		free(command);
 	}
 	pipex->current_cmd = ft_split_quote(av[i], ' ', '\'');
-	command = ft_strjoin("/bin/", pipex->current_cmd[0]);
+	command = ft_command_path(pipex->current_cmd[0]);
 	ft_exec_child(pipex, pipex->in_fd, pipex->out_fd, command);
 	ft_free_split(pipex->current_cmd);
 	i = 1;
@@ -97,12 +97,7 @@ int	main(int ac, char **av, char **env)
 {
 	t_pipex	pipex;
 
-	if (ac < 5)
-	{
-		ft_putstr_fd("Not enough arguments. ", 2);
-		ft_putstr_fd("Usage: ./pipex file1 cmd1 cmd2 ..cmd[n] file2\n", 2);
-		return (EXIT_FAILURE);
-	}
+	ft_arg_check(ac, av);
 	ft_check_access(ac, av);
 	ft_struct_init(&pipex, ac, av, env);
 	if (pipex.here_doc)

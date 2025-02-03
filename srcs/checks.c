@@ -3,14 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fureimu <fureimu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:55:44 by fureimu           #+#    #+#             */
-/*   Updated: 2025/01/30 16:14:03 by fureimu          ###   ########.fr       */
+/*   Updated: 2025/02/03 10:19:59 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+void	ft_arg_check(int ac, char **av)
+{
+	if (ac < 6 && !ft_strncmp("here_doc", av[1], 10))
+	{
+		ft_putstr_fd("Not enough arguments. ", 2);
+		ft_putstr_fd("Usage: ./pipex here_doc LIMITER cmd1 cmd2 file2\n", 2);
+		exit(EXIT_FAILURE);
+	}
+	else if (ac < 5 && ft_strncmp("here_doc", av[1], 10))
+	{
+		ft_putstr_fd("Not enough arguments. ", 2);
+		ft_putstr_fd("Usage: ./pipex file1 cmd1 cmd2 ..cmd[n] file2\n", 2);
+		exit(EXIT_FAILURE);
+	}
+}
 
 void	ft_check_access(int ac, char **av)
 {

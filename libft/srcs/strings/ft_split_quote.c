@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_quote.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fureimu <fureimu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 13:30:16 by fureimu           #+#    #+#             */
-/*   Updated: 2025/01/31 13:31:43 by fureimu          ###   ########.fr       */
+/*   Updated: 2025/02/03 15:43:24 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static size_t	ft_word_len(const char *str, char c, char quote)
 		if (str[i] == quote)
 			in_quote = !in_quote;
 		else if (!in_quote && str[i] == c)
-			break;
+			break ;
 		size++;
 		i++;
 	}

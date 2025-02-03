@@ -3,14 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fureimu <fureimu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:36:46 by fureimu           #+#    #+#             */
-/*   Updated: 2025/01/30 16:14:50 by fureimu          ###   ########.fr       */
+/*   Updated: 2025/02/03 12:45:19 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+char	**ft_get_path_from_env(char **env)
+{
+	char	**path;
+	int		i;
+
+	i = 0;
+	while (ft_strncmp(env[i], "PATH=", 5))
+		i++;
+	path = ft_split(env[i] + 5, ':');
+	i = -1;
+	while (path[++i])
+		path[i] = ft_strjoin_free(path[i], "/");
+	return (path);
+}
 
 void	ft_struct_init(t_pipex *pipex, int ac, char **av, char **env)
 {

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fureimu <fureimu@student.42.fr>            +#+  +:+       +#+         #
+#    By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/12 11:29:57 by yguinio           #+#    #+#              #
-#    Updated: 2025/01/31 13:30:48 by fureimu          ###   ########.fr        #
+#    Updated: 2025/02/03 15:33:43 by yguinio          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,8 +38,8 @@ LINKED_LIST_FILES=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_ls
 MEMORY_FILES=	ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memchr.c ft_memcmp.c ft_calloc.c ft_free_split.c 
 
 STRINGS_FILES=	ft_strlen.c ft_reverse.c ft_strlcpy.c ft_strlcat.c ft_strrchr.c ft_strncmp.c ft_strnstr.c ft_strdup.c ft_strchr.c \
-				ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_strmapi.c ft_striteri.c ft_strjoin_free.c ft_strjoin_free.c \
-				ft_split_quote.c
+				ft_substr.c ft_substr_free.c ft_strjoin.c ft_strtrim.c ft_split.c ft_strmapi.c ft_striteri.c ft_strjoin_free.c \
+				ft_strjoin_free.c ft_split_quote.c
 			  
 OBJ = $(addprefix $(OBJ_DIR), $(CHECKS_FILES:.c=.o)) \
 	  $(addprefix $(OBJ_DIR), $(CONVERSION_FILES:.c=.o)) \

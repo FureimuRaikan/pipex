@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fureimu <fureimu@student.42.fr>            +#+  +:+       +#+         #
+#    By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/24 13:55:10 by fureimu           #+#    #+#              #
-#    Updated: 2025/01/29 17:08:51 by fureimu          ###   ########.fr        #
+#    Updated: 2025/02/03 15:02:06 by yguinio          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ INC_DIR= includes/
 OBJ_DIR= obj/
 LIBFT_DIR= libft/
 
-FILES= main.c checks.c init.c clean.c
+FILES= main.c checks.c init.c clean.c env.c
 
 OBJ= $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
 

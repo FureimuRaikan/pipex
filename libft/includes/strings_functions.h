@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   strings_functions.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fureimu <fureimu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 10:29:32 by fureimu           #+#    #+#             */
-/*   Updated: 2025/01/31 13:31:56 by fureimu          ###   ########.fr       */
+/*   Updated: 2025/02/03 15:32:39 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_substr_free(char *s, unsigned int start, size_t len);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_reverse(char *str);
 
