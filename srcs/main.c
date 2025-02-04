@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:28:43 by fureimu           #+#    #+#             */
-/*   Updated: 2025/02/03 15:54:22 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/02/04 12:00:37 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_exec_commands(t_pipex *pipex, int ac, char **av)
 	int		i;
 	char	*command;
 
-	i = 1 + pipex->here_doc;
+	ft_first_cmd(*pipex, &i);
 	while (++i < ac - 2)
 	{
 		pipex->current_cmd = ft_split_quote(av[i], ' ', '\'');

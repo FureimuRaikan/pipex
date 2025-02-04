@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 13:54:30 by fureimu           #+#    #+#             */
-/*   Updated: 2025/02/03 15:00:37 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/02/04 11:46:28 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_pipex
 	char	**current_cmd;
 }			t_pipex;
 
+void	ft_first_cmd(t_pipex pipex, int *i);
 char	*ft_command_path(char *cmd);
 void	ft_arg_check(int ac, char **av);
 void	ft_check_access(int ac, char **av);

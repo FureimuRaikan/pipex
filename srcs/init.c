@@ -6,7 +6,7 @@
 /*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:36:46 by fureimu           #+#    #+#             */
-/*   Updated: 2025/02/03 12:45:19 by yguinio          ###   ########.fr       */
+/*   Updated: 2025/02/04 12:06:32 by yguinio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ void	ft_struct_init(t_pipex *pipex, int ac, char **av, char **env)
 	{
 		pipex->in_fd = open(av[1], O_RDONLY);
 		pipex->here_doc = 0;
-		if (pipex->in_fd == -1)
-			ft_exit_error(*pipex, "Error opening file 1");
 		pipex->out_fd = open(av[ac - 1], O_RDWR | O_TRUNC | O_CREAT, 0644);
 		if (pipex->out_fd == -1)
 			ft_exit_error(*pipex, "Error opening file 2");
@@ -50,4 +48,11 @@ void	ft_struct_init(t_pipex *pipex, int ac, char **av, char **env)
 	pipex->cmd_count = ac - 3;
 	pipex->env = env;
 	pipex->current_cmd = NULL;
+}
+
+void	ft_first_cmd(t_pipex pipex, int *i)
+{
+	*i = 1 + pipex.here_doc;
+	if (pipex.in_fd < 0)
+		*i = 2;
 }
