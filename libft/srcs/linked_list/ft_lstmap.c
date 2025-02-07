@@ -3,39 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/17 11:38:31 by yguinio           #+#    #+#             */
-/*   Updated: 2024/11/18 09:52:49 by yguinio          ###   ########.fr       */
+/*   Created: 2024/11/18 14:26:30 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/11/18 15:45:00 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "linked_list.h"
+
+static	void	free_all_list(t_list *new_list, void (*del)(void *))
+{
+	t_list	*temp;
+
+	while (new_list->next)
+	{
+		temp = new_list->next;
+		del(new_list->content);
+		free(new_list);
+		new_list = temp;
+	}
+}
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*newlist;
-	t_list	*newelt;
+	t_list	*new_list;
+	t_list	*new_element;
 
-	if (!lst || !f || !del)
-		return (NULL);
-	newlist = NULL;
+	new_list = NULL;
 	while (lst)
 	{
-		newelt = ft_lstnew((*f)(lst->content));
-		if (!newelt)
-		{
-			while (newlist)
-			{
-				newelt = newlist->next;
-				(*del)(newlist->content);
-				free(newlist);
-				newlist = newelt;
-			}
-			return (NULL);
-		}
-		ft_lstadd_back(&newlist, newelt);
+		new_element = ft_lstnew((*f)(lst->content));
+		if (!new_element)
+			free_all_list(new_list, *del);
+		ft_lstadd_back(&new_list, new_element);
 		lst = lst->next;
 	}
-	return (newlist);
+	return (new_list);
 }

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/17 11:13:59 by yguinio           #+#    #+#             */
-/*   Updated: 2024/11/17 11:27:55 by yguinio          ###   ########.fr       */
+/*   Created: 2024/11/18 14:06:36 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/11/18 15:43:06 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "linked_list.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
@@ -19,8 +19,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	while (*lst)
 	{
 		temp = (*lst)->next;
-		ft_lstdelone(*lst, del);
+		ft_lstdelone(*lst, *del);
 		*lst = temp;
 	}
-	lst = NULL;
+	*lst = NULL;
 }

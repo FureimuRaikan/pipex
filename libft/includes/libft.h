@@ -3,28 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fureimu <fureimu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 10:39:24 by yguinio           #+#    #+#             */
-/*   Updated: 2025/01/25 14:56:25 by fureimu          ###   ########.fr       */
+/*   Created: 2024/11/08 13:07:27 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/01/29 15:17:08 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <unistd.h>
-# include <string.h>
+# include <fcntl.h>
 # include <stdlib.h>
-# include <stdarg.h>
-# include <limits.h>
+# include <unistd.h>
 # include <stdbool.h>
 
 # include "checks.h"
-# include "conversion.h"
-# include "display.h"
-# include "linked_list.h"
+# include "conversions.h"
 # include "memory.h"
-# include "strings_functions.h"
+# include "print.h"
+# include "str_utils.h"
+# include "sort.h"
+# include "linked_list.h"
+# include "clean.h"
 
 #endif

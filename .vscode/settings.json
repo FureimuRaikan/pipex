@@ -1,8 +1,0 @@
-{
-	"files.associations": {
-		"pipex.h": "c",
-		"wait.h": "c",
-		"echteubest": "cpp"
-	},
-	"makefile.configureOnOpen": false
-}

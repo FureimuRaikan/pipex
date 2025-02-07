@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sclst_clean.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fureimu <fureimu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 10:57:22 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/22 16:09:32 by fureimu          ###   ########.fr       */
+/*   Updated: 2025/01/10 11:07:39 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "linked_list.h"
 
 void	ft_sclst_clean(t_sclist **sclst)
 {

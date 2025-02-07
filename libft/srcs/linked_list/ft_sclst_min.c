@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sclst_min.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fureimu <fureimu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 10:20:24 by pjaguin           #+#    #+#             */
-/*   Updated: 2025/01/22 16:09:32 by fureimu          ###   ########.fr       */
+/*   Updated: 2025/01/14 14:48:31 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "linked_list.h"
 
 int	ft_sclst_min(t_sclist *sclist)
 {

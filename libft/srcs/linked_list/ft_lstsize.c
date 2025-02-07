@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/17 10:48:31 by yguinio           #+#    #+#             */
-/*   Updated: 2024/11/17 11:05:02 by yguinio          ###   ########.fr       */
+/*   Created: 2024/11/18 10:55:39 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/11/20 12:23:44 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "linked_list.h"
 
 int	ft_lstsize(t_list *lst)
 {

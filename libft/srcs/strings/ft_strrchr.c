@@ -3,29 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 12:45:18 by yguinio           #+#    #+#             */
-/*   Updated: 2024/11/16 17:36:04 by yguinio          ###   ########.fr       */
+/*   Created: 2024/11/12 15:58:23 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/01/29 15:14:17 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "str_utils.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *str, int c)
 {
 	size_t	i;
-	char	*j;
+	char	*last_find;
 
 	i = 0;
-	j = NULL;
-	while (s[i])
+	last_find = NULL;
+	while (str[i])
 	{
-		if (s[i] == (unsigned char)c)
-			j = (char *)s + i;
+		if (str[i] == (unsigned char)c)
+			last_find = (char *)(str + i);
 		i++;
 	}
-	if (s[i] == (unsigned char)c)
-		j = (char *)s + i;
-	return (j);
+	if (str[i] == (unsigned char)c)
+		last_find = (char *)(str + i);
+	return (last_find);
 }

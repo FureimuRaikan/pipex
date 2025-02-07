@@ -3,44 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: unmugviolet <unmugviolet@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/03 15:31:47 by yguinio           #+#    #+#             */
-/*   Updated: 2025/02/03 15:42:55 by yguinio          ###   ########.fr       */
+/*   Created: 2025/02/04 18:50:39 by unmugviolet       #+#    #+#             */
+/*   Updated: 2025/02/04 18:54:26 by unmugviolet      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "str_utils.h"
 
-static size_t	ft_sublen(char *s, unsigned int start, size_t len)
+char	*ft_substr_free(char *str, unsigned int start, size_t len)
 {
-	if (start > ft_strlen(s))
-		return (0);
-	if (len > ft_strlen(s + start))
-		return (ft_strlen(s + start));
-	return (len);
-}
+	char	*ptr;
 
-char	*ft_substr_free(char *s, unsigned int start, size_t len)
-{
-	char	*str;
-	size_t	i;
-
-	if (!s)
-		return (NULL);
-	i = 0;
-	str = (char *)malloc(sizeof(char) * (ft_sublen(s, start, len) + 1));
-	if (!str)
-		return (NULL);
-	if ((size_t)start < ft_strlen(s))
+	if (ft_strlen(str) < start || !str)
 	{
-		while (s[start + i] && i < len)
-		{
-			str[i] = s[start + i];
-			i++;
-		}
+		len = 0;
+		start = 0;
 	}
-	str[i] = 0;
-	free(s);
-	return (str);
+	if (ft_strlen(str + start) < len)
+		len = ft_strlen(str + start);
+	ptr = (char *)malloc(sizeof(char) * (len + 1));
+	if (!ptr)
+		return (NULL);
+	ft_strlcpy(ptr, str + start, len + 1);
+	free(str);
+	return (ptr);
 }

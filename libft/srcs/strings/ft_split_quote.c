@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_quote.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/31 13:30:16 by fureimu           #+#    #+#             */
-/*   Updated: 2025/02/03 15:43:24 by yguinio          ###   ########.fr       */
+/*   Created: 2024/11/15 08:43:12 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/02/05 18:27:03 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "str_utils.h"
 
 static size_t	count_words(const char *str, char c, char quote)
 {
@@ -60,8 +60,7 @@ static size_t	ft_word_len(const char *str, char c, char quote)
 	return (size);
 }
 
-static char	**write_split(char **array, const char *str, char c,
-		char quote)
+static char	**write_split(char **array, const char *str, char c, char quote)
 {
 	size_t	i;
 	size_t	word_len;
@@ -76,7 +75,7 @@ static char	**write_split(char **array, const char *str, char c,
 			str++;
 		array[i] = (char *)ft_calloc(sizeof(char), word_len + 1);
 		if (!array[i])
-			return (ft_free_split(array), NULL);
+			return (ft_free_array_str(array), NULL);
 		ft_strlcpy(array[i], str, word_len + 1);
 		str += word_len + 1;
 		i++;

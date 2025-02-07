@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checks.c                                           :+:      :+:    :+:   */
+/*   input_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:55:44 by fureimu           #+#    #+#             */
-/*   Updated: 2025/02/04 11:21:57 by yguinio          ###   ########.fr       */
+/*   Created: 2025/01/28 17:06:47 by unmugviolet       #+#    #+#             */
+/*   Updated: 2025/02/07 15:01:43 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	ft_arg_check(int ac, char **av)
 {
-	if (ac < 6 && !ft_strncmp("here_doc", av[1], 10))
-	{
-		ft_putstr_fd("Not enough arguments. ", 2);
-		ft_putstr_fd("Usage: ./pipex here_doc LIMITER cmd1 cmd2 file2\n", 2);
-		exit(EXIT_FAILURE);
-	}
-	else if (ac < 5 && ft_strncmp("here_doc", av[1], 10))
+	if (ac < 2 || (ac < 5 && ft_strncmp("here_doc", av[1], 9)))
 	{
 		ft_putstr_fd("Not enough arguments. ", 2);
 		ft_putstr_fd("Usage: ./pipex file1 cmd1 cmd2 ..cmd[n] file2\n", 2);
+		exit(EXIT_FAILURE);
+	}
+	else if (ac < 6 && !ft_strncmp("here_doc", av[1], 9))
+	{
+		ft_putstr_fd("Not enough arguments. ", 2);
+		ft_putstr_fd("Usage: ./pipex here_doc LIMITER cmd1 cmd2 file2\n", 2);
 		exit(EXIT_FAILURE);
 	}
 }

@@ -3,27 +3,28 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+         #
+#    By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/01/24 13:55:10 by fureimu           #+#    #+#              #
-#    Updated: 2025/02/04 15:54:07 by yguinio          ###   ########.fr        #
+#    Created: 2024/11/08 13:05:36 by pjaguin           #+#    #+#              #
+#    Updated: 2025/02/05 17:31:39 by pjaguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME= pipex
+NAME = pipex
 
-SRC_DIR= srcs/
-INC_DIR= includes/
-OBJ_DIR= obj/
-LIBFT_DIR= libft/
+LIBFT_DIR = ./libft
+SRC_DIR = ./ppx_srcs/
+OBJ_DIR = ./ppx_objects/
+INC_DIR = ./ppx_includes/
 
-FILES= main.c checks.c init.c clean.c env.c 
+FILES = pipex.c init.c input_check.c clean.c
 
-OBJ= $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
+OBJ = $(addprefix $(OBJ_DIR), $(FILES:.c=.o))
 
 CC = cc
-CFLAGS = -Werror -Wextra -Wall -g3
-INC = -I $(INC_DIR) -I $(addprefix $(LIBFT_DIR), $(INC_DIR))
+MAKE = make
+CFLAGS = -Wall -Werror -Wextra -g
+INC_H = -I $(INC_DIR) -I $(LIBFT_DIR)/includes
 
 DEFAULT = \033[0m
 DEF_COLOR = \033[0;90m
@@ -32,31 +33,37 @@ GREEN = \033[0;92m
 YELLOW = \033[0;93m
 CYAN = \033[0;96m
 
-all : $(NAME)
+all: $(NAME)
 
 $(NAME) : $(OBJ)
 	@$(MAKE) -C $(LIBFT_DIR)
-	@$(CC) $(CFLAGS) $(INC) $(OBJ) -L$(LIBFT_DIR) -lft -o $(NAME)
-	@echo "$(GREEN)$(NAME) compiled !$(DEF_COLOR)"
+	@echo "$(GREEN)$(NAME) compiled!$(DEFAULT)"
+	@$(CC) $(CFLAGS) $(INC_H) $(OBJ) -L$(LIBFT_DIR) -lft -o $(NAME)
+
+$(OBJ_DIR)%.o: %.c | $(OBJ_DIR)
+	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
+	@$(CC) $(CFLAGS) $(INC_H) -c $< -o $@
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
 	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
-	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INC_H) -c $< -o $@
+	
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
-clean:
-	@make -C $(LIBFT_DIR) clean
-	@rm -rf $(OBJ_DIR)
-	@echo "$(CYAN)$(NAME) objects files cleaned !$(DEF_COLOR)"
+clean: 
+	@rm -rf $(OBJ)
+	@echo "$(GREEN)$(NAME) object files cleaned!$(DEFAULT)"
 
-fclean : clean
-	@make -C $(LIBFT_DIR) fclean
+fclean: clean
 	@rm -rf $(NAME)
-	@echo "$(CYAN)$(NAME) and its objects files cleaned !$(DEF_COLOR)"
+	@echo "$(CYAN)$(NAME) executables and objects removed succesfully!$(DEFAULT)"
+	@$(MAKE) fclean -C $(LIBFT_DIR)
+	@echo "$(CYAN)libft executables and objects removed succesfully!$(DEFAULT)"
+	
+re: fclean all 
 
-re: fclean all
-	@echo "$(GREEN)$(NAME) succesfully rebuilt !$(DEF_COLOR)"
-
-.PHONY : all clean fclean re
+# Specify that these are not files to compile (just for safety)
+.PHONY: all clean fclean re 
+	

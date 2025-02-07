@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sclst_addback.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fureimu <fureimu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 16:42:36 by fureimu           #+#    #+#             */
-/*   Updated: 2025/01/23 16:56:24 by fureimu          ###   ########.fr       */
+/*   Created: 2025/02/05 10:59:56 by pjaguin           #+#    #+#             */
+/*   Updated: 2025/02/05 11:03:40 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "linked_list.h"
 
 void	ft_sclst_addback(t_sclist **stack, t_sclist *new)
 {
@@ -20,9 +20,9 @@ void	ft_sclst_addback(t_sclist **stack, t_sclist *new)
 		*stack = new;
 	else
 	{
-		if (ft_sclstlast(*stack))
+		if (ft_sclst_last(*stack))
 		{
-			ft_sclstlast(*stack)->next = new;
+			ft_sclst_last(*stack)->next = new;
 			if (new)
 				new->next = *stack;
 		}

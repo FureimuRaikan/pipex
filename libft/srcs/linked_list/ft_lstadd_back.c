@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguinio <yguinio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pjaguin <pjaguin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/17 10:59:57 by yguinio           #+#    #+#             */
-/*   Updated: 2024/11/18 11:18:12 by yguinio          ###   ########.fr       */
+/*   Created: 2024/11/18 11:15:30 by pjaguin           #+#    #+#             */
+/*   Updated: 2024/11/18 12:54:43 by pjaguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "linked_list.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
